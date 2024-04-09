@@ -33,7 +33,7 @@ $get = bot('getupdates', ['offset' => $up_id]);
 return end($get['result']);
 }
 $botuser = "@" . bot('getme', ['bot']) ["result"]["username"];
-file_put_contents("samer/_ad.txt", $botuser);
+file_put_contents("besso/_ad.txt", $botuser);
 function stats($nn) {
 $st = "";
 $x = shell_exec("pm2 show $nn");
@@ -115,10 +115,10 @@ $ad = array("$group");
 if($text == "/start" and !in_array($chat_id,$ad) and $chat_id != $group = null){
 bot('sendmessage',[ 
 'chat_id'=>$chat_id,
-'text'=>" اهلا بك عزيز \n تشيكر سامر التنصيب بوت يمكنك تواصل ع الاسفل اليوزرات
+'text'=>" للاشتراك تواصل معي .
 ",'parse_mode' => "MarkDown", 'disable_web_page_preview' => true,
 'reply_markup' => json_encode(['inline_keyboard' => [
-[['text' => "- Dev-'", 'url' => "https://t.me/nnnjs"]],
+[['text' => "- Dev -'", 'url' => "https://t.me/nnnjs"]],
 ]]) 
 ]);
 }
@@ -145,7 +145,6 @@ $loop2 = $info["loop2"];
 $loop3 = $info["loop3"];
 $loop4 = $info["loop4"];
 $loop5 = $info["loop5"];
-$loop6 = $info["loop6"];
 file_put_contents('info.json', json_encode($info));
 if ($chat_id == $group) {
 if($text == 'الضغطات'){
@@ -153,49 +152,45 @@ bot('sendMessage', ['chat_id' => $chat_id,'text'=>"𖠜 Clicks Requests Of Numbe
 'reply_markup'=>json_encode(['inline_keyboard'=>[
 [['text'=>"1 ↣  $loop1 ",'callback_data'=>"U"],['text'=>"2 ↣  $loop2 ",'callback_data'=>"U"]],
 [['text'=>"3 ↣  $loop3 ",'callback_data'=>"U"],['text'=>"4 ↣  $loop4 ",'callback_data'=>"U"]],
-[['text'=>"5 ↣  $loop5 ",'callback_data'=>"U"]],[['text'=>"6 ↣  $loop6 ",'callback_data'=>"U"]],
+[['text'=>"5 ↣  $loop5 ",'callback_data'=>"U"]],
 ]])]);
 }}
 if($text == "تحديث بوت تحكم"){
 bot('sendMessage', ['chat_id' => $chat_id, 'text' => "The source has been updated ",
 ]);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/bot.php");
+$up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/bot.php");
 file_put_contents("bot.php",$up_file);
 shell_exec("killall screen && screen -dmS bot php7.4 bot.php");
 }
 if($text == "تحديث ملفات صيد"){
 bot('sendMessage', ['chat_id' => $chat_id, 'text' => "The source has been updated ",
 ]);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/1.php");
+$up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/1.php");
 file_put_contents("1.php",$up_file);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/2.php");
+$up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/2.php");
 file_put_contents("2.php",$up_file);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/3.php");
+$up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/3.php");
 file_put_contents("3.php",$up_file);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/4.php");
+$up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/4.php");
 file_put_contents("4.php",$up_file);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/5.php");
+$up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/5.php");
 file_put_contents("5.php",$up_file);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/6.php");
-file_put_contents("6.php",$up_file);
 shell_exec("pm2 stop 1.php");
 shell_exec("pm2 stop 2.php");
 shell_exec("pm2 stop 3.php");
 shell_exec("pm2 stop 4.php");
 shell_exec("pm2 stop 5.php");
-shell_exec("pm2 stop 6.php");
 shell_exec("pm2 stop 1.php");
 shell_exec("pm2 start 1.php");
 shell_exec("pm2 start 2.php");
 shell_exec("pm2 start 3.php");
 shell_exec("pm2 start 4.php");
 shell_exec("pm2 start 5.php");
-shell_exec("pm2 start 6.php");
 }
 if($text == "تحديث مكاتب تشيكر"){
 bot('sendMessage', ['chat_id' => $chat_id, 'text' => "The source has been updated ",
 ]);
-$up_file = curl_get("https://raw.githubusercontent.com/samerx/samer/main/madeline.php");
+$up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/madeline.php");
 file_put_contents("madeline.php",$up_file);
 }
 if (preg_match('/Run Account \d+/',$text)){
@@ -249,8 +244,7 @@ bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
 [["text" =>"Stop Run 2"],["text" =>"Run Account 2"]],
 [["text" =>"Stop Run 3"],["text" =>"Run Account 3"]],
 [["text" =>"Stop Run 4"],["text" =>"Run Account 4"]],
-[["text" =>"Stop Run 5"],["text" =>"Run Account 5"]]
-[["text" =>"Stop Run 6"],["text" =>"Run Account 6"]]],]) ]);
+[["text" =>"Stop Run 5"],["text" =>"Run Account 5"]]],]) ]);
 }}
 if (preg_match('/Stop Run \d+/',$text)){
 $ex = explode('Stop Run ',$text);
@@ -273,13 +267,12 @@ bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
 [["text" =>"add List 2"],["text" =>"Delet - 2"]],
 [["text" =>"add List 3"],["text" =>"Delet - 3"]],
 [["text" =>"add List 4"],["text" =>"Delet - 4"]],
-[["text" =>"add List 5"],["text" =>"Delet - 5"]],
 [["text" =>"add List 5"],["text" =>"Delet - 5"]]],]) ]);
 }}
 if (preg_match('/add List \d+/',$text)){
 $ex = explode('add List ',$text);
 bot('sendMessage', ['chat_id' => $chat_id,'text'=>"Send List ".$ex[1]." 📥",'reply_markup'=>json_encode(['inline_keyboard'=>[[['text' => "Dev", 'url' => "https://t.me/nnnjs"]],]])]);
-file_put_contents('mode', 'samer'.$ex[1]);
+file_put_contents('mode', 'besso'.$ex[1]);
 }
 if (preg_match('/Delet - \d+/',$text)){
 $ex = explode('Delet - ',$text);
@@ -311,13 +304,13 @@ file_put_contents("users1",preg_replace('~[\r\n]+~',"\n",trim(file_get_contents(
 bot('sendMessage', ['chat_id' => $chat_id,  'text' => "⌁ Done Delet User List 1 : @$user",'reply_markup'=>json_encode(['inline_keyboard'=>[[['text' => "Dev", 'url' => "https://t.me/nnnjs"]],
 ]])]);
 unlink('mode');
-}elseif($mode == 'samer1'){
+}elseif($mode == 'besso1'){
 echo $mode;
 $ex = explode("\n", $text);
 $userT = "";
 $userN = "";
 foreach ($ex as $u) {
-$samer1 = explode("\n", file_get_contents("users1"));
+$besso1 = explode("\n", file_get_contents("users1"));
 $user = explode("@", $u) [1];
 if (!in_array($user, $users)) {
 $userT = $userT . "\n" . $user;
@@ -356,13 +349,13 @@ file_put_contents("users2",preg_replace('~[\r\n]+~',"\n",trim(file_get_contents(
 bot('sendMessage', ['chat_id' => $chat_id,'text' => "⌁ Done Delet User List 2 : @$user" ,'reply_markup'=>json_encode(['inline_keyboard'=>[[['text' => "Dev", 'url' => "https://t.me/nnnjs"]],
 ]])]);
 unlink('mode');
-}elseif($mode == 'samer2'){
+}elseif($mode == 'besso2'){
 echo $mode;
 $ex = explode("\n", $text);
 $userT = "";
 $userN = "";
 foreach ($ex as $u) {
-$samer1 = explode("\n", file_get_contents("users2"));
+$besso1 = explode("\n", file_get_contents("users2"));
 $user = explode("@", $u) [1];
 if (!in_array($user, $users)) {
 $userT = $userT . "\n" . $user;
@@ -400,13 +393,13 @@ file_put_contents("users3",preg_replace('~[\r\n]+~',"\n",trim(file_get_contents(
 bot('sendMessage', ['chat_id' => $chat_id,'text' => "⌁ Done Delet User List 3 : @$user",'reply_markup'=>json_encode(['inline_keyboard'=>[[['text' => "Dev", 'url' => "https://t.me/nnnjs"]],
 ]])]);
 unlink('mode');
-}elseif($mode == 'samer3'){
+}elseif($mode == 'besso3'){
 echo $mode;
 $ex = explode("\n", $text);
 $userT = "";
 $userN = "";
 foreach ($ex as $u) {
-$samer1 = explode("\n", file_get_contents("users3"));
+$besso1 = explode("\n", file_get_contents("users3"));
 $user = explode("@", $u) [1];
 if (!in_array($user, $users)) {
 $userT = $userT . "\n" . $user;
@@ -445,13 +438,13 @@ file_put_contents("users4",preg_replace('~[\r\n]+~',"\n",trim(file_get_contents(
 bot('sendMessage', ['chat_id' => $chat_id,'text' => "⌁ Done Delet User List 4 : @$user",'reply_markup'=>json_encode(['inline_keyboard'=>[[['text' => "Dev", 'url' => "https://t.me/nnnjs"]],
 ]])]);
 unlink('mode');
-}elseif($mode == 'samer4'){
+}elseif($mode == 'besso4'){
 echo $mode;
 $ex = explode("\n", $text);
 $userT = "";
 $userN = "";
 foreach ($ex as $u) {
-$samer1 = explode("\n", file_get_contents("users4"));
+$besso1 = explode("\n", file_get_contents("users4"));
 $user = explode("@", $u) [1];
 if (!in_array($user, $users)) {
 $userT = $userT . "\n" . $user;
@@ -490,13 +483,13 @@ file_put_contents("users5",preg_replace('~[\r\n]+~',"\n",trim(file_get_contents(
 bot('sendMessage', ['chat_id' => $chat_id,'text' => "⌁ Done Delet User List 5 : @$user",'reply_markup'=>json_encode(['inline_keyboard'=>[[['text' => "Dev", 'url' => "https://t.me/nnnjs"]],
 ]])]);
 unlink('mode');
-}elseif($mode == 'samer5'){
+}elseif($mode == 'besso5'){
 echo $mode;
 $ex = explode("\n", $text);
 $userT = "";
 $userN = "";
 foreach ($ex as $u) {
-$samer1 = explode("\n", file_get_contents("users5"));
+$besso1 = explode("\n", file_get_contents("users5"));
 $user = explode("@", $u) [1];
 if (!in_array($user, $users)) {
 $userT = $userT . "\n" . $user;
