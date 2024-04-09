@@ -131,12 +131,12 @@ bot('sendMessage',[
 'parse_mode' => "MarkDown", 
 'disable_web_page_preview' => true,
 'reply_markup' => json_encode(['resize_keyboard' => true, 'keyboard' => [
-[["text" =>"اضف او حذف رقم"],["text" =>"اضف او حذف يوزر"]],
-[["text" =>"تشغيل او ايقاف"]],
-[["text" =>"عرض اليوزرات"],["text" =>"الضغطات"]],
-[["text" =>"--------------------------------------"]],
-[["text" =>"تحديث ملفات صيد"],["text" =>"تحديث مكاتب تشيكر"]],
-[["text" =>"تحديث بوت تحكم"]]], ]) 
+[["text" =>"Numbers"],["text" =>"Users"]],
+[["text" =>"Run , Stop"]],
+[["text" =>"View Users"],["text" =>"Loops"]],
+[["text" =>"deV @nnnjs"]],
+[["text" =>"Update fishing files"],["text" =>"Checker files updates"]],
+[["text" =>"Update buttons files"]]], ]) 
 ]);
 }
 $info = json_decode(file_get_contents('info.json'),true);
@@ -147,22 +147,22 @@ $loop4 = $info["loop4"];
 $loop5 = $info["loop5"];
 file_put_contents('info.json', json_encode($info));
 if ($chat_id == $group) {
-if($text == 'الضغطات'){
-bot('sendMessage', ['chat_id' => $chat_id,'text'=>"𖠜 Clicks Requests Of Numbers 𓆪 •",
+if($text == 'Loops'){
+bot('sendMessage', ['chat_id' => $chat_id,'text'=>" Clicks Requests Of Numbers ",
 'reply_markup'=>json_encode(['inline_keyboard'=>[
 [['text'=>"1 ↣  $loop1 ",'callback_data'=>"U"],['text'=>"2 ↣  $loop2 ",'callback_data'=>"U"]],
 [['text'=>"3 ↣  $loop3 ",'callback_data'=>"U"],['text'=>"4 ↣  $loop4 ",'callback_data'=>"U"]],
 [['text'=>"5 ↣  $loop5 ",'callback_data'=>"U"]],
 ]])]);
 }}
-if($text == "تحديث بوت تحكم"){
+if($text == "Update buttons files"){
 bot('sendMessage', ['chat_id' => $chat_id, 'text' => "The source has been updated ",
 ]);
 $up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/bot.php");
 file_put_contents("bot.php",$up_file);
 shell_exec("killall screen && screen -dmS bot php7.4 bot.php");
 }
-if($text == "تحديث ملفات صيد"){
+if($text == "Update fishing files"){
 bot('sendMessage', ['chat_id' => $chat_id, 'text' => "The source has been updated ",
 ]);
 $up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/1.php");
@@ -187,7 +187,7 @@ shell_exec("pm2 start 3.php");
 shell_exec("pm2 start 4.php");
 shell_exec("pm2 start 5.php");
 }
-if($text == "تحديث مكاتب تشيكر"){
+if($text == "Checker files updates"){
 bot('sendMessage', ['chat_id' => $chat_id, 'text' => "The source has been updated ",
 ]);
 $up_file = curl_get("https://raw.githubusercontent.com/bessox/besso/main/madeline.php");
@@ -196,15 +196,15 @@ file_put_contents("madeline.php",$up_file);
 if (preg_match('/Run Account \d+/',$text)){
 $ex = explode('Run Account ',$text);
 shell_exec("pm2 start $ex[1].php");
-bot('sendMessage', ['chat_id' => $chat_id,'text'=>"⌁ Done type to Account ".$ex[1]."✅",
+bot('sendMessage', ['chat_id' => $chat_id,'text'=>" Done type to Account ".$ex[1]."✅",
 'reply_markup'=>json_encode(['inline_keyboard'=>[
 [['text' => "Dev", 'url' => "https://t.me/nnnjs"]],
 ]])]);
 }
 ##اضف رقم او حذف###
 if ($chat_id == $group) {
-if ($text == "اضف او حذف رقم") {
-bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
+if ($text == "Numbers") {
+bot('sendMessage', ['chat_id' => $chat_id, 'text' => " Select button",
 'reply_markup' => json_encode(['resize_keyboard' => true, 'keyboard' => [
 [["text" =>"->"]],
 [["text" =>"Login1"],["text" =>"Delete number1"]],
@@ -215,7 +215,7 @@ bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
 }}
 if (preg_match('/Login\d+/',$text)){
 $ex = explode('Login',$text);
-bot('sendMessage',['chat_id' => $chat_id, 'text' => "• تشيكر رقم ".$ex[1].".\n• ارسل رقم الحساب الان .\n•مثال \n+3387287822"]);
+bot('sendMessage',['chat_id' => $chat_id, 'text' => "• حساب رقم ".$ex[1].".\n• ارسل رقم الحساب الان ."]);
 file_put_contents("TheN",$ex[1]);
 unlink($ex[1].".madeline");
 unlink($ex[1].".madeline.lock");
@@ -224,7 +224,7 @@ system('php Login.php');
 }
 if (preg_match('/Delete number\d+/',$text)){
 $ex = explode('Delete number',$text);
-bot('sendMessage',['chat_id' => $chat_id, 'text' => "• التشيكر رقم ".$ex[1]." - \n• تم حذفه بنجاح ."]);
+bot('sendMessage',['chat_id' => $chat_id, 'text' => "• الحساب رقم ".$ex[1]." - \n• تم الحذف بنجاح ."]);
 unlink("TheN");
 unlink($ex[1].".madeline"); 
 unlink($ex[1].".madeline.lock");
@@ -236,8 +236,8 @@ system('rm -rf '.$ex[1].'.madeline && rm -rf '.$ex[1].'.madeline.lock && rm -rf 
 }
 ####رن او ستوب###
 if ($chat_id == $group) {
-if ($text == "تشغيل او ايقاف") {
-bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
+if ($text == "Run , Stop") {
+bot('sendMessage', ['chat_id' => $chat_id, 'text' => " Select button",
 'reply_markup' => json_encode(['resize_keyboard' => true, 'keyboard' => [
 [["text" =>"->"]],
 [["text" =>"Stop Run 1"],["text" =>"Run Account 1"]],
@@ -259,8 +259,8 @@ file_put_contents('info.json', json_encode($info));
 }
 ##اضف حذف يوزر###
 if ($chat_id == $group) {
-if ($text == "اضف او حذف يوزر") {
-bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
+if ($text == "Users") {
+bot('sendMessage', ['chat_id' => $chat_id, 'text' => " Select button",
 'reply_markup' => json_encode(['resize_keyboard' => true, 'keyboard' => [
 [["text" =>"->"]],
 [["text" =>"add List 1"],["text" =>"Delet - 1"]],
@@ -507,8 +507,8 @@ unlink('mode');
 }
 ##عرض السته او حذف##
 if ($chat_id == $group) {
-if ($text == "عرض اليوزرات") {
-bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
+if ($text == "View Users") {
+bot('sendMessage', ['chat_id' => $chat_id, 'text' => " Select button",
 'reply_markup' => json_encode(['resize_keyboard' => true, 'keyboard' => [
 [["text" =>"->"]],
 [["text" =>"Show All - 1"],["text" =>"Clear list 1"]],
