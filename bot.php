@@ -216,8 +216,7 @@ bot('sendMessage', ['chat_id' => $chat_id, 'text' => "𖠜 Select button",
 [["text" =>"Login2"],["text" =>"Delete number2"]],
 [["text" =>"Login3"],["text" =>"Delete number3"]],
 [["text" =>"Login4"],["text" =>"Delete number4"]],
-[["text" =>"Login5"],["text" =>"Delete number5"]]
-[["text" =>"Login6"],["text" =>"Delete number6"]]],]) ]);
+[["text" =>"Login5"],["text" =>"Delete number5"]]],]) ]);
 }}
 if (preg_match('/Login\d+/',$text)){
 $ex = explode('Login',$text);
