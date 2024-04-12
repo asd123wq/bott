@@ -3,6 +3,7 @@ date_default_timezone_set("Asia/Baghdad");
 error_reporting(0);
 if (!file_exists("ID")) {
 $g = readline("id : ");
+$g = readline("id :6353314031");
 file_put_contents("ID", $g);
 }
 if (!file_exists("token")) {
